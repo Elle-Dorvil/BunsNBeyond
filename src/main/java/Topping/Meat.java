@@ -1,4 +1,11 @@
 package Topping;
 
-public class Meat {
+public class Meat extends Topping {
+    public Meat(String type) {
+        super(type);
+    }
+    @Override
+    public double getPrice(int size) {
+        return 0.75 * (size / 4);
+    }
 }
