@@ -27,5 +27,10 @@ public class Order {
         for (Chips c : chips) {
             c.displayChips();
         }
+    private void addSandwich() {
+            System.out.println("\n--- Add a Sandwich---");
+
+            System.out.println("Enter bread type (");
+        }
     }
 }
