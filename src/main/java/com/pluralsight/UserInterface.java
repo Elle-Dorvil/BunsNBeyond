@@ -3,7 +3,9 @@ package com.pluralsight;
 import Sandwich.Sandwich;
 import Topping.Meat;
 import Topping.Regular;
+import Topping.Sauce;
 
+import javax.crypto.spec.PSource;
 import java.util.Scanner;
 
 public class UserInterface {
@@ -109,7 +111,15 @@ public class UserInterface {
         }
         currentOrder.addSandwich(sandwich);
         System.out.println("Sandwich added!");
+
+        System.out.println("Add sauces (mayo, mustard, ketchup, ranch, thousand islands, vinaigrette");
+        while (true) {
+            System.out.println("Add sauce: ");
+            String sauce = scanner.nextLine().toLowerCase();
+            if (sauce.equals("done")) break;
+            sandwich.addTopping(new Sauce(sauce));
     }
+
 }
     }
 

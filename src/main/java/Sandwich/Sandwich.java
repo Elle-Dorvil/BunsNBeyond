@@ -69,18 +69,15 @@ public class Sandwich {
         toppings.add(topping);
     }
     public void displaySandwich() {
-        System.out.println(size + "\" " + bread + " sandwich " + (isToasted ? "(toasted" : "(not toasted)"));
-        
-        if (!toppings.isEmpty()) {
-            System.out.println("Toppings: ");
-            for (Topping t : toppings) {
-                System.out.println("-" + t.getType() + ": " + t.getName());
-            }
-        } else {
-            System.out.println("No toppings selected. ");
-        }
+        System.out.println("---- Sandwich ----");
+        System.out.printf("%d\" %s sandwich %s\n", size, bread, (isToasted ? "(toasted)" : ""));
 
-        System.out.println();
+        for (Topping t : toppings) {
+            System.out.printf("- %-10s: %-15s $%.2f/n",  t.getType(), t.getName(), t.getPrice(size));
+            }
+        System.out.printf("Subtotal: $%.2f\n", getPrice());
+        System.out.println("------------------\n");
+        }
     }
     public double getPrice() {
         double base = switch (size) {
