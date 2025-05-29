@@ -20,6 +20,7 @@ public class UserInterface {
             switch (choice) {
                 case 1:
                     System.out.println("Starting a new order...");
+                    createOrder();
                     break;
                 case 0:
                     System.out.println("Thank you for visiting!");

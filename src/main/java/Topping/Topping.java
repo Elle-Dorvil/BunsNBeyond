@@ -1,9 +1,9 @@
 package Topping;
 
-public abstract class RegularTopping {
+public abstract class Topping {
     private String type;
 
-    public RegularTopping(String type) {
+    public Topping(String type) {
         this.type = type;
     }
 
@@ -15,7 +15,7 @@ public abstract class RegularTopping {
         this.type = type;
     }
 
-    public double abstract getPrice(int size);
+    public abstract double getPrice(int size);
 }
 
 

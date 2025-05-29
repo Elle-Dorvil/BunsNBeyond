@@ -1,6 +1,6 @@
 package Topping;
 
-public class Cheese extends RegularTopping {
+public class Cheese extends Topping {
     public Cheese (String type) {
         super(type);
     }

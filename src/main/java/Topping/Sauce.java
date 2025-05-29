@@ -1,8 +1,12 @@
 package Topping;
 
-public class Sauce extends RegularTopping {
-   public String (Sauce type) {
+public class Sauce extends Topping {
+   public Sauce (String type) {
        super(type);
-       return 0;
    }
+
+    @Override
+    public double getPrice(int size) {
+        return 0;
+    }
 }
