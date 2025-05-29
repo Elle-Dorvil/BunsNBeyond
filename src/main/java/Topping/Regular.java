@@ -9,4 +9,8 @@ public class Regular extends Topping {
     public String getType() {
         return "Regular";
     }
+    @Override
+    public  double getPrice(int size) {
+        return 0.0;
+    }
 }

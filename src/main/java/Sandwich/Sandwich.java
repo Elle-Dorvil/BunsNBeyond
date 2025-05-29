@@ -82,5 +82,19 @@ public class Sandwich {
 
         System.out.println();
     }
+    public double getPrice() {
+        double base = switch (size) {
+            case 4 -> 5.50;
+            case 8 -> 7.00;
+            case 12 -> 8.50;
+            default -> 0.0;
+        };
+
+        double toppingTotal = 0.0;
+        for (Topping t : toppings) {
+            toppingTotal += t.getPrice(size);
+        }
+        return base + toppingTotal;
+    }
 
 }
