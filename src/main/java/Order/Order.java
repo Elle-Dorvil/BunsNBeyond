@@ -28,26 +28,5 @@ public class Order {
         for (Chips c : chips) {
             c.displayChips();
         }
-    private void addSandwich() {
-            Scanner scanner = new Scanner();
-            
-            System.out.println("\n--- Add a Sandwich---");
 
-            System.out.println("Enter bread type (white, wheat, rye, wrap): ");
-            String bread = scanner.nextLine();
-
-            System.out.println("Enter sandwich size (4, 8, 12): ");
-            int size = scanner.nextInt();
-
-            System.out.println("Toasted? (true/false): ");
-            boolean isToasted = scanner.nextBoolean();
-            scanner.nextLine();
-
-            Sandwich sandwich = new Sandwich(bread, size, isToasted);
-
-            currentOrder.addSandwich(sandwich);
-
-            System.out.println("Sandwich added!");
-        }
-    }
 }

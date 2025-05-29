@@ -1,11 +1,17 @@
 package Sandwich;
 
+import Topping.Topping;
+
+import java.util.ArrayList;
+import java.util.List;
+
 public class Sandwich {
     private String bread;
     private int size;
     private boolean isToasted;
     private boolean extraMeat;
     private boolean extraCheese;
+    private List<Topping> toppings;
 
     public Sandwich(String bread, int size, boolean isToasted, boolean extraMeat, boolean extraCheese) {
         this.bread = bread;
@@ -13,6 +19,10 @@ public class Sandwich {
         this.isToasted = isToasted;
         this.extraMeat = extraMeat;
         this.extraCheese = extraCheese;
+        this.toppings = new ArrayList<>();
+    }
+
+    public Sandwich(String bread, int size, boolean isToasted) {
     }
 
     public String getBread() {
@@ -54,4 +64,23 @@ public class Sandwich {
     public void setExtraCheese(boolean extraCheese) {
         this.extraCheese = extraCheese;
     }
+
+    public void addTopping(Topping topping) {
+        toppings.add(topping);
+    }
+    public void displaySandwich() {
+        System.out.println(size + "\" " + bread + " sandwich " + (isToasted ? "(toasted" : "(not toasted)"));
+        
+        if (!toppings.isEmpty()) {
+            System.out.println("Toppings: ");
+            for (Topping t : toppings) {
+                System.out.println("-" + t.getType() + ": " + t.getName());
+            }
+        } else {
+            System.out.println("No toppings selected. ");
+        }
+
+        System.out.println();
+    }
+
 }

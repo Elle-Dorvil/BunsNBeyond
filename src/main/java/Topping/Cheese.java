@@ -1,11 +1,11 @@
 package Topping;
 
 public class Cheese extends Topping {
-    public Cheese (String type) {
-        super(type);
+    public Cheese (String name) {
+        super(name);
     }
     @Override
-    public double getPrice(int size) {
-        return 0.50 * (size / 4);
+    public String getType() {
+        return "Cheese";
     }
 }

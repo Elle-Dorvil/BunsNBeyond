@@ -1,21 +1,23 @@
 package Topping;
 
 public abstract class Topping {
-    private String type;
+    protected String name;
 
-    public Topping(String type) {
-        this.type = type;
+    public Topping(String name) {
+        this.name = name;
     }
 
-    public String getType() {
-        return type;
-    }
-
-    public void setType(String type) {
-        this.type = type;
-    }
+    public abstract String getType();
 
     public abstract double getPrice(int size);
+
+    public String getName() {
+        return name;
+    }
 }
+
+//    public abstract double getPrice(int size);
+//
+//}
 
 

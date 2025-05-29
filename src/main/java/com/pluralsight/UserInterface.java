@@ -1,5 +1,9 @@
 package com.pluralsight;
 
+import Sandwich.Sandwich;
+import Topping.Meat;
+import Topping.Regular;
+
 import java.util.Scanner;
 
 public class UserInterface {
@@ -71,6 +75,42 @@ public class UserInterface {
                     System.out.println("Invalid choice. ");
             }
         }
+    }
+    private void addSandwich() {
+        Scanner scanner = new Scanner();
+
+        System.out.println("\n--- Add a Sandwich---");
+
+        System.out.println("Enter bread type (white, wheat, rye, wrap): ");
+        String bread = scanner.nextLine();
+
+        System.out.println("Enter sandwich size (4, 8, 12): ");
+        int size = scanner.nextInt();
+
+        System.out.println("Toasted? (true/false): ");
+        boolean isToasted = scanner.nextBoolean();
+        scanner.nextLine();
+
+        Sandwich sandwich = new Sandwich(bread, size, isToasted);
+
+        System.out.println("Add meats(steak, ham, salami, roast beef, chicken, bacon). Type 'done' when finished");
+        while (true) {
+            System.out.println("Add meat: ");
+            String meat = scanner.nextLine().toLowerCase();
+            if (meat.equals("done")) break;
+            sandwich.addTopping(new Meat(meat));
+        }
+        System.out.println("Add regular topppings (lettuce, peppers, onions, tomatoes, jalapenos, cucumbers, pickles, guacamole, mushrooms). Type 'done' when finished.");
+        while (true) {
+            System.out.println("Add topping: ");
+            String topping = scanner.nextLine().toLowerCase();
+            if (topping.equals("done")) break;
+            sandwich.addTopping(new Regular(topping));
+        }
+        currentOrder.addSandwich(sandwich);
+        System.out.println("Sandwich added!");
+    }
+}
     }
 
 }
