@@ -6,7 +6,12 @@ public class Chips {
     public Chips(String flavor) {
         this.flavor = flavor;
     }
+
+    public double getPrice() {
+        return 1.50;
+    }
+
     public void displayChips() {
-        System.out.println("Chips: " + flavor);
+        System.out.printf("Chips: %-10s $%.2f/n", flavor, getPrice());
     }
 }
