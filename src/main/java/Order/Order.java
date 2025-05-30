@@ -34,7 +34,7 @@ public class Order {
         for (Sandwich s : sandwiches) {
             s.displaySandwich();
         }
-        for (Drink d : order.getDrinks) {
+        for (Drink d : drinks) {
             d.displayDrink();
         }
         for (Chips c : chips) {

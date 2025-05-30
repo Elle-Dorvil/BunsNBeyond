@@ -9,25 +9,28 @@ public class Sandwich {
     private String bread;
     private int size;
     private boolean isToasted;
-    private boolean extraMeat;
-    private boolean extraCheese;
+//    private boolean extraMeat;
+//    private boolean extraCheese;
     private List<Topping> toppings;
+
+    public Sandwich(String bread, int size, boolean isToasted) {
+    }
 
     public void setToppings(List<Topping> toppings) {
         this.toppings = toppings;
     }
 
-    public Sandwich(String bread, int size, boolean isToasted, boolean extraMeat, boolean extraCheese, List<Topping> toppings) {
-        this.bread = bread;
-        this.size = size;
-        this.isToasted = isToasted;
-        this.extraMeat = extraMeat;
-        this.extraCheese = extraCheese;
-        this.toppings = new ArrayList<>();
-    }
+//    public Sandwich(String bread, int size, boolean isToasted, List<Topping> toppings) {
+//        this.bread = bread;
+//        this.size = size;
+//        this.isToasted = isToasted;
+//        this.extraMeat = extraMeat;
+//        this.extraCheese = extraCheese;
+//        this.toppings = new ArrayList<>();
+//    }
 
-    public Sandwich(String bread, int size, boolean isToasted) {
-    }
+//    public Sandwich(String bread, int size, boolean isToasted) {
+//    }
 
     public String getBread() {
         return bread;
@@ -53,21 +56,21 @@ public class Sandwich {
         isToasted = toasted;
     }
 
-    public boolean isExtraMeat() {
-        return extraMeat;
-    }
-
-    public void setExtraMeat(boolean extraMeat) {
-        this.extraMeat = extraMeat;
-    }
-
-    public boolean isExtraCheese() {
-        return extraCheese;
-    }
-
-    public void setExtraCheese(boolean extraCheese) {
-        this.extraCheese = extraCheese;
-    }
+//    public boolean isExtraMeat() {
+//        return extraMeat;
+//    }
+//
+//    public void setExtraMeat(boolean extraMeat) {
+//        this.extraMeat = extraMeat;
+//    }
+//
+//    public boolean isExtraCheese() {
+//        return extraCheese;
+//    }
+//
+//    public void setExtraCheese(boolean extraCheese) {
+//        this.extraCheese = extraCheese;
+//    }
 
     public List<Topping> getToppings() {
         return toppings;
