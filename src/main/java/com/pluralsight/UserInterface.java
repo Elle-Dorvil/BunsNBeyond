@@ -121,8 +121,7 @@ public class UserInterface {
             if (topping.equals("done")) break;
             selectedToppings.add(new Regular(topping));
         }
-        currentOrder.addSandwich(sandwich);
-        System.out.println("Sandwich added!");
+
 
         System.out.println("Add sauces (mayo, mustard, ketchup, ranch, thousand islands, vinaigrette");
         while (true) {
@@ -132,6 +131,9 @@ public class UserInterface {
             selectedToppings.add(new Sauce(sauce));
     }
         sandwich.setToppings(selectedToppings);
+
+        currentOrder.addSandwich(sandwich);
+        System.out.println("Sandwich added!");
 
 }       private void addDrink(){
     }

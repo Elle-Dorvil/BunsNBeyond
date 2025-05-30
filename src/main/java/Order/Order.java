@@ -67,6 +67,7 @@ public class Order {
     public void saveReceiptToFile() {
         String timeStamp = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyyMMdd-HHmmss"));
         String filename = "receipts/" + timeStamp + ".txt";
+        List<Sandwich> selectedSandwich = new ArrayList<>();
 
         try {
             java.io.File folder = new java.io.File("receipts");
