@@ -5,9 +5,13 @@ import Sandwich.Sandwich;
 import Topping.Meat;
 import Topping.Regular;
 import Topping.Sauce;
+
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 import Order.Drink;
 import Order.Chips;
+import Topping.Topping;
 
 public class UserInterface {
     private Scanner scanner = new Scanner(System.in);
@@ -101,20 +105,21 @@ public class UserInterface {
         scanner.nextLine();
 
         Sandwich sandwich = new Sandwich(bread, size, isToasted);
+        List<Topping> selectedToppings = new ArrayList<>();
 
         System.out.println("Add meats(steak, ham, salami, roast beef, chicken, bacon). Type 'done' when finished");
         while (true) {
             System.out.println("Add meat: ");
             String meat = scanner.nextLine().toLowerCase();
             if (meat.equals("done")) break;
-            sandwich.addTopping(new Meat(meat));
+            selectedToppings.add(new Meat(meat));
         }
-        System.out.println("Add regular topppings (lettuce, peppers, onions, tomatoes, jalapenos, cucumbers, pickles, guacamole, mushrooms). Type 'done' when finished.");
+        System.out.println("Add regular toppings (lettuce, peppers, onions, tomatoes, jalapenos, cucumbers, pickles, guacamole, mushrooms). Type 'done' when finished.");
         while (true) {
             System.out.println("Add topping: ");
             String topping = scanner.nextLine().toLowerCase();
             if (topping.equals("done")) break;
-            sandwich.addTopping(new Regular(topping));
+            selectedToppings.add(new Regular(topping));
         }
         currentOrder.addSandwich(sandwich);
         System.out.println("Sandwich added!");
@@ -124,11 +129,15 @@ public class UserInterface {
             System.out.println("Add sauce: ");
             String sauce = scanner.nextLine().toLowerCase();
             if (sauce.equals("done")) break;
-            sandwich.addTopping(new Sauce(sauce));
+            selectedToppings.add(new Sauce(sauce));
     }
+        sandwich.setToppings(selectedToppings);
 
 }       private void addDrink(){
-
     }
+
+        private void addChips() {
+
+        }
     }
 

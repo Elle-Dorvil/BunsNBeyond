@@ -13,7 +13,11 @@ public class Sandwich {
     private boolean extraCheese;
     private List<Topping> toppings;
 
-    public Sandwich(String bread, int size, boolean isToasted, boolean extraMeat, boolean extraCheese) {
+    public void setToppings(List<Topping> toppings) {
+        this.toppings = toppings;
+    }
+
+    public Sandwich(String bread, int size, boolean isToasted, boolean extraMeat, boolean extraCheese, List<Topping> toppings) {
         this.bread = bread;
         this.size = size;
         this.isToasted = isToasted;
@@ -63,6 +67,10 @@ public class Sandwich {
 
     public void setExtraCheese(boolean extraCheese) {
         this.extraCheese = extraCheese;
+    }
+
+    public List<Topping> getToppings() {
+        return toppings;
     }
 
     public void addTopping(Topping topping) {
