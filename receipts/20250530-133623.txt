@@ -1,0 +1,18 @@
+====== Order Receipt ======
+
+Order ID: #1001
+Date :2025-05-30 13:34
+
+4" white sandwich (not toasted)
+ - Meat: steak $1.00
+ - Cheese:  $1.05
+ - Meat: ham $1.00
+ - Cheese:  $0.75
+ - Regular: lettuce $0.00
+ - Sauce: mayo $0.00
+Subtotal: $9.30
+
+Drink: small(water) $0.00
+
+Total: $9.30
+============================

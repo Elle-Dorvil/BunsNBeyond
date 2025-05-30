@@ -1,0 +1,13 @@
+====== Order Receipt ======
+
+Order ID: #1001
+Date :2025-05-30 15:12
+
+4" white sandwich (not toasted)
+ - Regular: lettuce $0.00
+ - Sauce: mayo $0.00
+Subtotal: $5.50
+
+
+Total: $5.50
+============================

@@ -9,11 +9,15 @@ public class Sandwich {
     private String bread;
     private int size;
     private boolean isToasted;
-//    private boolean extraMeat;
+//        private boolean extraMeat;
 //    private boolean extraCheese;
     private List<Topping> toppings;
 
     public Sandwich(String bread, int size, boolean isToasted) {
+        this.bread = bread;
+        this.size = size;
+        this.isToasted = isToasted;
+        this.toppings = new ArrayList<>();
     }
 
     public void setToppings(List<Topping> toppings) {
@@ -70,7 +74,7 @@ public class Sandwich {
 //
 //    public void setExtraCheese(boolean extraCheese) {
 //        this.extraCheese = extraCheese;
-//    }
+////    }
 
     public List<Topping> getToppings() {
         return toppings;
@@ -79,16 +83,17 @@ public class Sandwich {
     public void addTopping(Topping topping) {
         toppings.add(topping);
     }
+
     public void displaySandwich() {
         System.out.println("---- Sandwich ----");
         System.out.printf("%d\" %s sandwich %s\n", size, bread, (isToasted ? "(toasted)" : ""));
 
         for (Topping t : toppings) {
-            System.out.printf("- %-10s: %-15s $%.2f\n",  t.getType(), t.getName(), t.getPrice(size));
-            }
+            System.out.printf("- %-10s: %-15s $%.2f\n", t.getType(), t.getName(), t.getPrice(size));
+        }
         System.out.printf("Subtotal: $%.2f\n", getPrice());
         System.out.println("------------------\n");
-        }
+    }
 
     public double getPrice() {
         double base = switch (size) {

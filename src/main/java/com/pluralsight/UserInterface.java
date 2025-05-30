@@ -9,6 +9,7 @@ import Topping.Sauce;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
+
 import Order.Drink;
 import Order.Chips;
 import Topping.Topping;
@@ -42,7 +43,7 @@ public class UserInterface {
                 default:
                     System.out.println("Invalid choice. ");
             }
-        } while (choice !=0);
+        } while (choice != 0);
     }
 
     public void createOrder() {
@@ -93,8 +94,9 @@ public class UserInterface {
             }
         }
     }
+
     private void addSandwich() {
-        Scanner scanner = new Scanner(System.in);
+//        Scanner scanner = new Scanner(System.in);
 
         System.out.println("\n--- Add a Sandwich---");
 
@@ -114,88 +116,88 @@ public class UserInterface {
         Sandwich sandwich = new Sandwich(bread, size, isToasted);
         List<Topping> selectedToppings = new ArrayList<>();
 
-        System.out.println("What meat would you like?(steak, ham, salami, roast beef, chicken, bacon). Type 'done' when finished");
-
         while (true) {
-            System.out.println("Add meat: ");
-            if (equals("done")) break;
+            System.out.println("What meat would you like?(steak, ham, salami, roast beef, chicken, bacon). Type 'done' when finished");
             String meat = scanner.nextLine().toLowerCase();
-
+            System.out.println("Add meat: ");
             if (meat.equals("done")) {
-                break;
+
+
+                System.out.println("Do you want extra meat? (y or n): ");
+                String extraInput = scanner.nextLine().toLowerCase();
+                boolean extraMeat = extraInput.equals("y");
+                if (extraInput.equalsIgnoreCase("y")) {
+                    extraMeat = true;
+                    selectedToppings.add(new Meat(meat, extraMeat));
+                }
             }
-
-            System.out.println("Do you want extra meat? (y or n): ");
-            String extraInput = scanner.nextLine().toLowerCase();
-            boolean extraMeat = extraInput.equals("y");
-//            String meat = scanner.nextLine().toLowerCase();
-
-            selectedToppings.add(new Meat(meat, extraMeat));
+            while (true) {
 
 //            boolean extraMeat = scanner.nextLine();
 //            scanner.nextLine();
-            System.out.println("Would you like cheese? (american, provolone, swiss, cheddar)");
-            if (equals("done")) break;
-            String cheese = scanner.nextLine().toLowerCase();
+                System.out.println("Would you like cheese? (american, provolone, swiss, cheddar)");
+                String cheese = scanner.nextLine().toLowerCase();
 
-            if (cheese.equals("done")) {
-                break;
+                if (cheese.equals("done")) {
+
+                    System.out.println("Do you want extra cheese? (y or n): ");
+                    String extraInput = scanner.nextLine().toLowerCase();
+                    boolean extraCheese = extraInput.equals("y");
+//            cheese = scanner.nextLine().toLowerCase();
+
+                    selectedToppings.add(new Cheese(cheese, extraCheese));
+
+                    break;
+                }
+                System.out.println("Add regular toppings (lettuce, peppers, onions, tomatoes, jalapenos, cucumbers, pickles, guacamole, mushrooms). Type 'done' when finished.");
+                while (true) {
+                    System.out.println("Add topping: ");
+                    String topping = scanner.nextLine().toLowerCase();
+                    if (topping.equals("done")) break;
+                    selectedToppings.add(new Regular(topping));
+                }
+
+
+                System.out.println("Add sauces (mayo, mustard, ketchup, ranch, thousand islands, vinaigrette");
+                while (true) {
+                    System.out.println("Add sauce: ");
+                    String sauce = scanner.nextLine().toLowerCase();
+                    if (sauce.equals("done")) break;
+                    selectedToppings.add(new Sauce(sauce));
+                }
             }
+            break;
 
-            System.out.println("Do you want extra cheese? (y or n): ");
-            extraInput = scanner.nextLine().toLowerCase();
-            boolean extraCheese = extraInput.equals("y");
-            cheese = scanner.nextLine().toLowerCase();
-
-            selectedToppings.add(new Cheese(cheese, extraCheese));
 
         }
-        System.out.println("Add regular toppings (lettuce, peppers, onions, tomatoes, jalapenos, cucumbers, pickles, guacamole, mushrooms). Type 'done' when finished.");
-        while (true) {
-            System.out.println("Add topping: ");
-            String topping = scanner.nextLine().toLowerCase();
-            if (topping.equals("done")) break;
-            selectedToppings.add(new Regular(topping));
-        }
-
-
-        System.out.println("Add sauces (mayo, mustard, ketchup, ranch, thousand islands, vinaigrette");
-        while (true) {
-            System.out.println("Add sauce: ");
-            String sauce = scanner.nextLine().toLowerCase();
-            if (sauce.equals("done")) break;
-            selectedToppings.add(new Sauce(sauce));
-    }
         sandwich.setToppings(selectedToppings);
-
         currentOrder.addSandwich(sandwich);
-        currentOrder.saveReceiptToFile();
         System.out.println("Sandwich added!");
-
-}       private void addDrink(){
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("\n--- Add a Drink---");
-
-
-        System.out.println("Enter drink size: small, medium, large ");
-        String size = scanner.nextLine().toLowerCase();
-
-        System.out.println("What flavor?: Water, Grape, Strawberry, Apple");
-        String flavor = scanner.nextLine().toLowerCase();
-
-        List<String> validFlavors = List.of("water", "grape", "strawberry", "apple");
-        if (!validFlavors.contains(flavor)) {
-            System.out.println("Invalid input. Try again. ");
-            return;
-        }
-        Drink drink = new Drink(size, flavor);
-        System.out.println("Added drink: " + size + " " + flavor + drink.getPrice());
-
-        currentOrder.saveReceiptToFile();
     }
+
+        private void addDrink() {
+//            Scanner scanner = new Scanner(System.in);
+            System.out.println("\n--- Add a Drink---");
+
+
+            System.out.println("Enter drink size: small, medium, large ");
+            String size = scanner.nextLine().toLowerCase();
+
+            System.out.println("What flavor?: Water, Grape, Strawberry, Apple");
+            String flavor = scanner.nextLine().toLowerCase();
+
+            List<String> validFlavors = List.of("water", "grape", "strawberry", "apple");
+            if (!validFlavors.contains(flavor)) {
+                System.out.println("Invalid input. Try again. ");
+                return;
+            }
+            Drink drink = new Drink(flavor, size);
+            System.out.println("Added drink: " + size + " " + flavor + drink.calculatePrice());
+
+            currentOrder.addDrink(drink);
+        }
 
         private void addChips() {
-        Scanner scanner = new Scanner(System.in);
             System.out.println("\n--- Add Chips ---");
             System.out.print("Flavor choices (bbq, cheddar, plain): ");
             String inputFlavor = scanner.nextLine();
@@ -204,12 +206,14 @@ public class UserInterface {
                 Chips chips = new Chips(inputFlavor);
                 System.out.println("Added chips: " + chips.getFlavor());
                 System.out.println("Price: $" + chips.getPrice());
+                currentOrder.addChips(chips);
             } catch (IllegalArgumentException e) {
                 System.out.println("Error: " + e.getMessage());
             }
-            currentOrder.saveReceiptToFile();
-
         }
+
+
+
         public void cancelOrder() {
             System.out.println("Are you sure you want to cancel the order? (y/n): ");
             String confirm = scanner.nextLine().toLowerCase();
@@ -221,4 +225,3 @@ public class UserInterface {
             }
         }
     }
-

@@ -69,7 +69,7 @@ public class Order {
             }
 
             for (Drink d : drinks) {
-                total += d.getPrice();
+                total += d.calculatePrice();
             }
 
             for (Chips c : chips) {
@@ -102,7 +102,7 @@ public class Order {
                 writer.write("Subtotal: $" + String.format("%.2f", s.getPrice()) + "\n\n");
             }
             for (Drink d : drinks) {
-                writer.write("Drink: " + d.getFlavor() + "(" + d.getSize() + ") $" + String.format("%.2f", d.getPrice()) + "\n");
+                writer.write("Drink: " + d.getFlavor() + "(" + d.getSize() + ") $" + String.format("%.2f", d.calculatePrice()) + "\n");
             }
             for (Chips c : chips) {
                 writer.write(String.format(String.format("Chips: " + c.getFlavor() + " $" + String.format("%.2f", c.getPrice()) + "\n")));
