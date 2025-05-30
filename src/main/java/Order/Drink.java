@@ -9,6 +9,7 @@ public class Drink {
         this.flavor = flavor;
         this.size = size.toLowerCase();
         this.price = calculatePrice(size);
+        System.out.println("DEBUG: Created drink size=" + this.size + ", price=" + price);
     }
 
     public double getPrice() {
@@ -36,6 +37,6 @@ public class Drink {
         }
     }
     public void displayDrink() {
-        System.out.printf("Drink: %-10s (%s) $%.2f\n ", flavor, size, calculatePrice(size.toLowerCase()));
+        System.out.printf("Drink: %-10s (%s) $%.2f\n ", flavor, size, price);
     }
 }

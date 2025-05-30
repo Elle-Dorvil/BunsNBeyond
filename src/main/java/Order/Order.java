@@ -34,7 +34,7 @@ public class Order {
         for (Sandwich s : sandwiches) {
             s.displaySandwich();
         }
-        for (Drink d : drinks) {
+        for (Drink d : order.getDrinks) {
             d.displayDrink();
         }
         for (Chips c : chips) {
@@ -99,4 +99,10 @@ public class Order {
         }
     }
 
+    public void cancelOrder() {
+        sandwiches.clear();
+        drinks.clear();
+        chips.clear();
+        System.out.println("Order has been canceled. ");
+    }
 }

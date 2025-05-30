@@ -83,6 +83,7 @@ public class UserInterface {
                     ordering = false;
                     break;
                 case 0:
+                    cancelOrder();
                     System.out.println("Order canceled. ");
                     ordering = false;
                     break;
@@ -189,6 +190,16 @@ public class UserInterface {
                 System.out.println("Error: " + e.getMessage());
             }
 
+        }
+        public void cancelOrder() {
+            System.out.println("Are you sure you want to cancel the order? (y/n): ");
+            String confirm = scanner.nextLine().toLowerCase();
+
+            if (confirm.equals("y")) {
+                currentOrder.cancelOrder();
+            } else {
+                System.out.println("Order not canceled. Try again");
+            }
         }
     }
 
