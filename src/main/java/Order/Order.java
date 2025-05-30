@@ -12,10 +12,22 @@ import java.util.List;
 
 
 public class Order {
+    private int orderID;
+    private LocalDateTime orderDate;
     private List<Sandwich> sandwiches = new ArrayList<>();
     private List<Drink> drinks = new ArrayList<>();
     private List<Chips> chips = new ArrayList<>();
-    private List<Topping> toppings;
+
+    public Order(int orderID) {
+        this.orderID = orderID;
+        this.orderDate = LocalDateTime.now();
+    }
+    public int getOrderID() {
+        return orderID;
+    }
+    public LocalDateTime getOrderDate() {
+        return orderDate;
+    }
 
     public void addSandwich(Sandwich sandwich) {
         sandwiches.add(sandwich);
@@ -31,6 +43,10 @@ public class Order {
 
     public void displayOrderDetails() {
         System.out.println("\n===== Order Details =====\n ");
+
+        System.out.println("Order ID: #" + orderID);
+        System.out.println("Date: " + orderDate.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm")));
+
         for (Sandwich s : sandwiches) {
             s.displaySandwich();
         }
@@ -75,10 +91,12 @@ public class Order {
 
             FileWriter writer = new FileWriter(filename);
             writer.write("====== Order Receipt ======\n\n");
+            writer.write("Order ID: #" + orderID + "\n");
+            writer.write("Date :" + orderDate.format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm")) + "\n\n");
 
             for (Sandwich s : sandwiches) {
                 writer.write(s.getSize() + "\" " + s.getBread() + " sandwich " + (s.isToasted() ? "(toasted)\n" : "(not toasted)\n"));
-                for (Topping t : toppings) {
+                for (Topping t : s.getToppings()) {
                     writer.write(" - " + t.getType() + ": " + t.getName() + " $" + String.format("%.2f", t.getPrice(s.getSize())) + "\n");
                 }
                 writer.write("Subtotal: $" + String.format("%.2f", s.getPrice()) + "\n\n");

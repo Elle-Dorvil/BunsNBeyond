@@ -1,0 +1,15 @@
+====== Order Receipt ======
+
+Order ID: #1001
+Date :2025-05-30 12:48
+
+0" null sandwich (not toasted)
+ - Meat: steak $0.00
+ - Cheese: done $0.00
+ - Regular: lettuce $0.00
+ - Sauce: mayo $0.00
+Subtotal: $0.00
+
+
+Total: $0.00
+============================

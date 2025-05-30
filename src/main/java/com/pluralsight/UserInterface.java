@@ -12,12 +12,13 @@ import java.util.Scanner;
 import Order.Drink;
 import Order.Chips;
 import Topping.Topping;
+import Topping.Cheese;
 
 import javax.swing.plaf.synth.SynthOptionPaneUI;
 
 public class UserInterface {
     private Scanner scanner = new Scanner(System.in);
-    private Order currentOrder = new Order();
+    private Order currentOrder = new Order(1001);
 
     public void displayHomeScreen() {
         int choice;
@@ -45,7 +46,7 @@ public class UserInterface {
     }
 
     public void createOrder() {
-        currentOrder = new Order();
+        currentOrder = new Order(1001);
 
         boolean ordering = true;
 
@@ -133,6 +134,20 @@ public class UserInterface {
 
 //            boolean extraMeat = scanner.nextLine();
 //            scanner.nextLine();
+            System.out.println("Would you like cheese? (american, provolone, swiss, cheddar)");
+            if (equals("done")) break;
+            String cheese = scanner.nextLine().toLowerCase();
+
+            if (cheese.equals("done")) {
+                break;
+            }
+
+            System.out.println("Do you want extra cheese? (y or n): ");
+            extraInput = scanner.nextLine().toLowerCase();
+            boolean extraCheese = extraInput.equals("y");
+            cheese = scanner.nextLine().toLowerCase();
+
+            selectedToppings.add(new Cheese(cheese, extraCheese));
 
         }
         System.out.println("Add regular toppings (lettuce, peppers, onions, tomatoes, jalapenos, cucumbers, pickles, guacamole, mushrooms). Type 'done' when finished.");
@@ -154,6 +169,7 @@ public class UserInterface {
         sandwich.setToppings(selectedToppings);
 
         currentOrder.addSandwich(sandwich);
+        currentOrder.saveReceiptToFile();
         System.out.println("Sandwich added!");
 
 }       private void addDrink(){
@@ -174,6 +190,8 @@ public class UserInterface {
         }
         Drink drink = new Drink(size, flavor);
         System.out.println("Added drink: " + size + " " + flavor + drink.getPrice());
+
+        currentOrder.saveReceiptToFile();
     }
 
         private void addChips() {
@@ -189,6 +207,7 @@ public class UserInterface {
             } catch (IllegalArgumentException e) {
                 System.out.println("Error: " + e.getMessage());
             }
+            currentOrder.saveReceiptToFile();
 
         }
         public void cancelOrder() {
