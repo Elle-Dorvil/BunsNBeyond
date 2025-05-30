@@ -87,7 +87,7 @@ public class Order {
                 writer.write("Drink: " + d.getFlavor() + "(" + d.getSize() + ") $" + String.format("%.2f", d.getPrice()) + "\n");
             }
             for (Chips c : chips) {
-                writer.write(String.format(String.format("Chips: " + c.getBrand() + " $" + String.format("%.2f", c.getPrice()) + "\n")));
+                writer.write(String.format(String.format("Chips: " + c.getFlavor() + " $" + String.format("%.2f", c.getPrice()) + "\n")));
             }
             writer.write("\nTotal: $" + String.format("%.2f", getTotalPrice()) +"\n");
             writer.write("============================\n");

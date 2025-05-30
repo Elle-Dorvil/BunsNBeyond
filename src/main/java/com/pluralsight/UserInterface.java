@@ -13,6 +13,8 @@ import Order.Drink;
 import Order.Chips;
 import Topping.Topping;
 
+import javax.swing.plaf.synth.SynthOptionPaneUI;
+
 public class UserInterface {
     private Scanner scanner = new Scanner(System.in);
     private Order currentOrder = new Order();
@@ -174,6 +176,18 @@ public class UserInterface {
     }
 
         private void addChips() {
+        Scanner scanner = new Scanner(System.in);
+            System.out.println("\n--- Add Chips ---");
+            System.out.print("Flavor choices (bbq, cheddar, plain): ");
+            String inputFlavor = scanner.nextLine();
+
+            try {
+                Chips chips = new Chips(inputFlavor);
+                System.out.println("Added chips: " + chips.getFlavor());
+                System.out.println("Price: $" + chips.getPrice());
+            } catch (IllegalArgumentException e) {
+                System.out.println("Error: " + e.getMessage());
+            }
 
         }
     }
