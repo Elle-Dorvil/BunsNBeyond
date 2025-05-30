@@ -100,19 +100,37 @@ public class UserInterface {
         System.out.println("Enter sandwich size (4, 8, 12): ");
         int size = scanner.nextInt();
 
-        System.out.println("Toasted? (true/false): ");
-        boolean isToasted = scanner.nextBoolean();
+        System.out.println("Toasted? (y or n): ");
+        String toastedInput = scanner.nextLine().toLowerCase();
+        boolean isToasted = toastedInput.equals("y");
+//        if (scanner.nextBoolean()) isToasted = true;
+//        else isToasted = false;
         scanner.nextLine();
 
         Sandwich sandwich = new Sandwich(bread, size, isToasted);
         List<Topping> selectedToppings = new ArrayList<>();
 
-        System.out.println("Add meats(steak, ham, salami, roast beef, chicken, bacon). Type 'done' when finished");
+        System.out.println("What meat would you like?(steak, ham, salami, roast beef, chicken, bacon). Type 'done' when finished");
+
         while (true) {
             System.out.println("Add meat: ");
+            if (equals("done")) break;
             String meat = scanner.nextLine().toLowerCase();
-            if (meat.equals("done")) break;
-            selectedToppings.add(new Meat(meat));
+
+            if (meat.equals("done")) {
+                break;
+            }
+
+            System.out.println("Do you want extra meat? (y or n): ");
+            String extraInput = scanner.nextLine().toLowerCase();
+            boolean extraMeat = extraInput.equals("y");
+//            String meat = scanner.nextLine().toLowerCase();
+
+            selectedToppings.add(new Meat(meat, extraMeat));
+
+//            boolean extraMeat = scanner.nextLine();
+//            scanner.nextLine();
+
         }
         System.out.println("Add regular toppings (lettuce, peppers, onions, tomatoes, jalapenos, cucumbers, pickles, guacamole, mushrooms). Type 'done' when finished.");
         while (true) {
@@ -136,6 +154,23 @@ public class UserInterface {
         System.out.println("Sandwich added!");
 
 }       private void addDrink(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("\n--- Add a Drink---");
+
+
+        System.out.println("Enter drink size: small, medium, large ");
+        String size = scanner.nextLine().toLowerCase();
+
+        System.out.println("What flavor?: Water, Grape, Strawberry, Apple");
+        String flavor = scanner.nextLine().toLowerCase();
+
+        List<String> validFlavors = List.of("water", "grape", "strawberry", "apple");
+        if (!validFlavors.contains(flavor)) {
+            System.out.println("Invalid input. Try again. ");
+            return;
+        }
+        Drink drink = new Drink(size, flavor);
+        System.out.println("Added drink: " + size + " " + flavor + drink.getPrice());
     }
 
         private void addChips() {

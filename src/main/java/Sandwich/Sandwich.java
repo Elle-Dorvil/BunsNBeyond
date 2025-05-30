@@ -81,7 +81,7 @@ public class Sandwich {
         System.out.printf("%d\" %s sandwich %s\n", size, bread, (isToasted ? "(toasted)" : ""));
 
         for (Topping t : toppings) {
-            System.out.printf("- %-10s: %-15s $%.2f/n",  t.getType(), t.getName(), t.getPrice(size));
+            System.out.printf("- %-10s: %-15s $%.2f\n",  t.getType(), t.getName(), t.getPrice(size));
             }
         System.out.printf("Subtotal: $%.2f\n", getPrice());
         System.out.println("------------------\n");

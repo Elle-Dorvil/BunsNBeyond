@@ -27,9 +27,7 @@ public class Order {
         chips.add(chip);
     }
 
-    public List<Topping> getToppings() {
-        return toppings;
-    }
+
 
     public void displayOrderDetails() {
         System.out.println("\n===== Order Details =====\n ");
