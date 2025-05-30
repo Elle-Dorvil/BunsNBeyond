@@ -5,8 +5,7 @@ Sandwich Shop - BunsNBeyond
 
 Java-based command-line application that simulates a sandwich shop ordering system. Users can create custom sandwich orders by choosing bread, size, toppings, chips, and drinks. The system calculates the subtotal for each item and provides a final total at checkout.
 
-![Class Diagram](path/to/your/class_diagram.png)
-[UML class.pdf](../../../../Downloads/UML%20class.pdf)
+![Class Diagram][UML class.pdf](../../../../Downloads/UML%20class.pdf)(path/to/your/class_diagram.png)
 
 ## User Stories
 
