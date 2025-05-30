@@ -1,12 +1,13 @@
 package com.pluralsight;
 
+import Order.Order;
 import Sandwich.Sandwich;
 import Topping.Meat;
 import Topping.Regular;
 import Topping.Sauce;
-
-import javax.crypto.spec.PSource;
 import java.util.Scanner;
+import Order.Drink;
+import Order.Chips;
 
 public class UserInterface {
     private Scanner scanner = new Scanner(System.in);
@@ -66,7 +67,13 @@ public class UserInterface {
                     break;
                 case 4:
                     currentOrder.displayOrderDetails();
-                    System.out.println("Thank you! Order complete.\n");
+                    System.out.println("Confirm order? (yes/no): ");
+                    String confirm = scanner.nextLine().toLowerCase();
+
+                    if (confirm.equals("yes")) {
+                        currentOrder.saveReceiptToFile();
+                        System.out.println("Thank you! Order complete.\n");
+                    }
                     ordering = false;
                     break;
                 case 0:
@@ -79,7 +86,7 @@ public class UserInterface {
         }
     }
     private void addSandwich() {
-        Scanner scanner = new Scanner();
+        Scanner scanner = new Scanner(System.in);
 
         System.out.println("\n--- Add a Sandwich---");
 
@@ -120,7 +127,8 @@ public class UserInterface {
             sandwich.addTopping(new Sauce(sauce));
     }
 
-}
+}       private void addDrink(){
+
+    }
     }
 
-}

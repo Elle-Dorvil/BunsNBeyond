@@ -9,6 +9,18 @@ public class Drink {
         this.size = size.toLowerCase();
     }
 
+    public String getFlavor() {
+        return flavor;
+    }
+
+    public String getSize() {
+        return size;
+    }
+
+    public String addDrink() {
+        return addDrink();
+    }
+
     public double getPrice() {
         return switch (size) {
             case "small" -> 2.00;

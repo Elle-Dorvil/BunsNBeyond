@@ -1,10 +1,14 @@
 package Order;
 
 public class Chips {
-    private String flavor;
+    private String brand;
 
-    public Chips(String flavor) {
-        this.flavor = flavor;
+    public Chips(String brand) {
+        this.brand = brand;
+    }
+
+    public String getBrand() {
+        return brand;
     }
 
     public double getPrice() {
@@ -12,6 +16,6 @@ public class Chips {
     }
 
     public void displayChips() {
-        System.out.printf("Chips: %-10s $%.2f/n", flavor, getPrice());
+        System.out.printf("Chips: %-10s $%.2f/n", getBrand(), getPrice());
     }
 }

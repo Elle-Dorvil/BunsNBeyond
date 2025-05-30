@@ -4,9 +4,8 @@ public class Meat extends Topping {
     private boolean extra;
 
 
-    public Meat(String name, boolean extra) {
+    public Meat(String name) {
         super(name);
-        this.extra = extra;
     }
     @Override
     public String getType() {

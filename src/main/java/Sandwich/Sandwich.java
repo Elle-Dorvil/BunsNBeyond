@@ -78,7 +78,7 @@ public class Sandwich {
         System.out.printf("Subtotal: $%.2f\n", getPrice());
         System.out.println("------------------\n");
         }
-    }
+
     public double getPrice() {
         double base = switch (size) {
             case 4 -> 5.50;
@@ -93,5 +93,6 @@ public class Sandwich {
         }
         return base + toppingTotal;
     }
-
 }
+
+
